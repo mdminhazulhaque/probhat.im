@@ -4,7 +4,7 @@
 	$.extend( $.ime.sources, {
 		'bn-probhat': {
 			name: 'প্রভাত',
-			source: '/js/bn-probhat.js'
+			source: 'js/bn-probhat.js'
 		}
 	} );
 
