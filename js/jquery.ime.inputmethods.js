@@ -4,7 +4,7 @@
 	$.extend( $.ime.sources, {
 		'bn-probhat': {
 			name: 'প্রভাত',
-			source: 'https://minhazul-haque.github.io/probhat.im/js/bn-probhat.js'
+			source: 'probhat.im/js/bn-probhat.js'
 		}
 	} );
 
