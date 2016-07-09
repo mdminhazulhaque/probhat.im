@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Md. Minhazul Haque" />
+    <meta name="description" content="Probhat.im - Use Probhat layout directly from your browser without installing anything" />
+    <title>Probhat.im</title>
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico?t=20160709">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    
+    <script src="js/jquery.ime.js"></script>
+    <script src="js/jquery.ime.selector.js"></script>
+    <script src="js/jquery.ime.preferences.js"></script>
+    <script src="js/jquery.ime.inputmethods.js"></script>
+    
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" rel="stylesheet">
+    <link href="http://minhazul-haque.github.io/solaimanlipi/css/solaimanlipi.css" rel="stylesheet">
+    
+    <style>
+    * {
+    font-family: 'SolaimanLipi', sans-serif;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0; 
+    margin: 0; 
+    }
+
+    body {
+    padding-top: 70px;
+    padding-bottom: 50px;
+    }
+
+    textarea {
+    height: auto !important;
+    width: 100%;
+    font-size: 16px;
+    padding: 15px;
+    }
+
+    .imeselector {
+    display: none !important;
+    }
+    </style>
+    <script>
+        $(document).ready( function () {
+        $('#banglapad').ime({languages: ['bn']});
+        $('#action-select-all').click(function(){
+            $('#banglapad').select();
+        });
+        $('#action-delete-all').click(function(){
+            $('#banglapad').val('');
+        });
+        $('#banglapad').focus();
+    });
+    </script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">অনলাইন প্রভাত কিবোর্ড</a>
+                    </div>
+                </nav>
+                <button class="btn btn-primary navbar-btn" id="action-select-all" type="button">
+                    <span class="octicon octicon-three-bars"></span> Select All
+                </button>
+                <button class="btn btn-danger navbar-btn" id="action-delete-all" type="button">
+                    <span class="octicon octicon-trashcan"></span> Clear All
+                </button>
+                <form role="form">
+                    <div class="form-group">
+                        <textarea data-autoresize="" id="banglapad" placeholder="এখানে বাংলা লিখুন, বাংলা-ইংরেজী সুইচ করতে Ctrl+M চাপুন" rows="10"></textarea>
+                    </div>
+                </form>
+                <div class="alert alert-warning">
+                    <p><span class="octicon octicon-pin"></span> প্রভাত লেআউট সম্পর্কে বিস্তারিত জানুন <a href="http://ekushey.org/?page/probhat_layout">এখানে</a></p>
+                    <p><span class="octicon octicon-mark-github"></span> প্রজেক্টের সোর্সকোড এর <a href="https://github.com/minhazul-haque/probhat.im">গিটহাব রিপোজিটরি</a></p>
+                    <p><span class="octicon octicon-plug"></span> প্রজেক্টটিতে Wikimedia এর <a href="https://github.com/wikimedia/jquery.ime">jQuery.IME</a> ব্যাবহার করা হয়েছে</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
