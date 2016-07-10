@@ -1,53 +1,71 @@
 <!DOCTYPE html>
+<!-- <html lang="en" manifest="app.cache"> -->
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Md. Minhazul Haque" />
-    <meta name="description" content="Probhat.im - Use Probhat layout directly from your browser without installing anything" />
-    <title>Probhat.im</title>
+    <meta name="description" content="probhat.im - Use Probhat layout directly from your browser without installing anything" />
+    <title>probhat.im</title>
 
     <link rel="icon" type="image/x-icon" href="favicon.ico?t=20160709">
+    <!-- cdn resources -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link href="https://minhazul-haque.github.io/solaimanlipi/css/solaimanlipi.css" rel="stylesheet">
     
+    <!-- local resources -->
     <script src="js/jquery.ime.js"></script>
     <script src="js/jquery.ime.selector.js"></script>
     <script src="js/jquery.ime.preferences.js"></script>
-    <script src="js/jquery.ime.inputmethods.js"></script>
-    
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" rel="stylesheet">
-    <link href="https://minhazul-haque.github.io/solaimanlipi/css/solaimanlipi.css" rel="stylesheet">
+    <script src="js/jquery.ime.inputmethods.js"></script>    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     
     <style>
     * {
-    font-family: 'SolaimanLipi', sans-serif;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 0; 
-    margin: 0; 
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0; 
+        margin: 0;
     }
-
     body {
-    padding-top: 70px;
-    padding-bottom: 50px;
+        padding: 70px;
+        padding-bottom: 50px;
+        padding-right: 20px;
+        padding-left: 20px;
     }
-
     textarea {
-    height: auto !important;
-    width: 100%;
-    font-size: 16px;
-    padding: 15px;
+        height: auto !important;
+        width: 100%;
+        font-size: 16px;
+        padding: 15px;
     }
-
+    img {
+        width: 16px;
+        height: 16px;
+    }
     .imeselector {
     display: none !important;
     }
+    .github {
+        content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEzklEQVRYR62XTWxUVRTH/+e8aaXUlhbex0wloZCiAYJIYoLEHYYQgwtCosEPFigk7owaP0KIkWj8DIkLF4rAwqDGhSEkYkITjcaIARaAKLIotsbamffemIIlFaZzzzF30qmv09fpYOeuJnPPx++ce+655xEaXK7rdjiO8xCLbCoD6whYwUSdVl1ErinRYAa4IMxfG2NOFIvFsUZM01xCd7juncZxXhZjdjBz21zyk0DjDtFnZeCtOI4H6unMCrB06dK2cqn0GoBnAGQacZwiMwHgvQULF74yNDR0I81GKoDneSsd1WNgXvM/HU9XE/lJmLdHUXSl1t4MgB7PW19WPcnMXlOcV42IRA7Rlj/j+HzS7jQAe94TwA/M7DbVeQLCEN2frIspgJ6enoVSKp1Jpp2AC6p6WVQ33XJGREJi/kZF1oD57qmAjLmYaWvbMDw8/I/9bwog6/sHADxXk57t+Sg6BqAl8LydRPQ6gJwSjarqIANXK1UPdBHRclLtFmCYVfcV4vgTAOWs5z0Cos9rMvpuIYpenALocd27hPnn2mo3qiuT6Vq8eHFnJpPx0orJGguCYIUxJk72gFwut0qNuVQDMGFUV1vblQxkg+AIVHfVnrsAfbM5a7RGJoO7PKP6VQ/n43g3VaJiLqQ1GSXaFobh8UadpcnlfH+7Al/MCE5kXIkCCoLgMVK15zVticjvE8asGx0dvTYfgO7u7kUtjnOBmZfV2lGiHZTzvENK9FRKg9iZj6Kj83Fe1c35/k4FPp4BABy0GThLqvcmNwUotba2dlWvynwhbFsvlUpXGWitSfNp8j2vyERLkhtG9dc4jlfP13FS3/O8Sw7RqmmBisSU9f2SvefJDQXOh1G0vpkAge+fI+Ce2kxbAPtiTX/tRAYLxeKKZgL4rjuUUogT5LtunNL7y5zJLBoZGRlvBkSlzZfLfwNwZhxBWhFWhFS3FuL4q2YAZF13K5i/TLF1xl7Dj5Rod8oV6Q+jaEszAHKe169Em2fYEvnAXsNHSfXTNEcWLAzDw/OByAXBHlU9mGpD9eG6rRiAAbC3EEX2pbS/b2Vlsp73PIjeAMApiteNaq76GB2G6pOTQq9C9RJU9yXe8StKdISN6W/v6ro4MDBwM40kCIJ2AGtJdTNEdoF5+WzECnwYRtHTFYDKDEj0y2Q/sCP2EyLyrSNyCo6zNmmERI7ni8VtKYbJ9/0TDDw4V5pspyWiVWEY/pYcSN4B8IJVFpFxcpy1qtrBwHcAFlWNKtF9YRieTnPi+/5GBk7NBUBEb+bDcK+VmwLo7e1dcGNs7Ew1YlI9lI/jPdlstleN2U2qS8hxzuXD8IiddNKcVGyMj1dGrdmWHfPaOzs3VI9x2lBqJxoy5kcw+wAmSPWBfBx/P1dEyf2s72sd+QKYNxYKhaGqzIyx3Pf9dSzSbyFE5CYzvw/mE44xo0IU5KPoZD2gOgAF2wvCMLSj39RK/TCZzIT9MPlvmp1UKURR3c+5NIDKdM28LRn5rBmobvT19d12fWxsv6g+m3zHbwXAVrtDdKC9o2P/bFd3zo9Tmw2ovkQijwtAUbFo7/qsy3fdcQZEmY+C6O0wDAfnKMrGSszzvNtbWlq6R0ZG/qinkcvllpXL5b/iOL7eiOV/AczDFZjzhru9AAAAAElFTkSuQmCC');
+    }
+    .plugin {
+        content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABo0lEQVRYR+3WP2gVQRAG8F8kKIISSWEtQgiISRArW0EUrVJpYiCdTVKIKFhZWIgQCxtFRRtRDBbp/ANpUqbUEAI2ItgYsRcsjAxccazvltzdwwN50xzs7cz37ew3MzukYxvqGN+AwCADTTKwB7dwBYfxETex2kTQTQhcx1IC9gvj+FKXRBMCL3C5B9AFvP0XBM7ifQL0Gcfxs98ERnAa+0qBR/EgAdrAXeyU1rexlqz9xS93BQH+AUfqnqq0/yEWcv45AtNYaQEeriHOcvZqZeASXrUkEO5Zoed+dk7gGGZxH8N4iii1nIUIr+IxThbl2lgDKVCI8isOZhgsY6bOtdVtRFH/0QeqbB7P/1sCh4orOJA54Wtc7FcGJoqJd6copWc4t4vg1/AIJ9qKsPMyrCLwG7fxBN8xVcyBMxXZ6XsjuocbCdhefKqYG40JhJiirlObw8se629wPlmPxhQvqErLsRvDVtEFywHe9QA6ik3sT5DWcaopgfCLt0A0l/JE+4HFJOhk8S4sn/ZboY34NsrALiqu/Za6rbg9YhJhQKDzDPwBLu0+IQHHywcAAAAASUVORK5CYII=');
+    }
+    .pin {
+        content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABvUlEQVRYR+3WPWsUURTG8V9SaWURbExjFGy0ElsJsbGIjQQEC0Vj0tkbLNJIUD9AhEQRbVKorUgqP4KYGAjEIEEQNb50ARFRDszCZtyZe9cdCMjecubec/73Oec8MwP2eA3scX59gP9SgYs4j1tYTfVY0wocwib24SvOYKUOommAx7jclvBLAVGpRJMAE3jW4bbbBcSbTko0BXAOT7C/Qu6AGMNa+X2vACO4iWskPeVzocQuiFyA2BeNNYSjOIVxjGIw1elt77dwuH1/DsASYrSaWO9wpFuAnZra5kL9xD3cwcduAa7gYUaNq2DWcaHKlHJKEIEn8eAfIF4X3f+9ii4XIM5Hp9/vAuIHTuBtk044hcVMiHlcTzVJNwq0YkUj3UgFLm7/l/H0akQH8QrDCYANHMuATLpXeWJe4GzxMLz9eEU5HuFq0wBhuXP4jduYLaZjoQPEDO42CXAaL/ENl7DcFnwaZYjwjvg0J1dOE7bqHj8aYckfOkQtQ4TxPE1mzxinAHxeNF5I/qsmaAsiSnQSYULJlVIg5v59SfK6oJE4ILOSR6A6gPj8HsCn5DV62JBSoIfQeUf7AH0F/gB1jUUhQA5ZKgAAAABJRU5ErkJggg==');
+    }
+    .clearall {
+        content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB8klEQVRYR+3WzasPcRTH8df1tECKsvFQ8lg2ItlRNmyQx52y8hfYCBulbGxtrOw9lLAgpchd3jzs7ImsSIp7Rae+o/Ft5vedGT/dze+7+82ccz7vOfM5Z35T5vlMzbO+CcCkA307sANbsGiAeb/gGb7Wc7sCnMQVbBsgXE/5hBN4Xl3sAnAN5/5RuJ7+ERvxLS6WAM7g5hjFq1IH8bgEsAkvsfw/AJzC7VEAYbIX2NMgPouLWIjLWJLFfMeldD9802TYIkAkhkjTeYhD6cYR3KpB/MBxREycRzjQUGQkwD48xYIWgDDRLrzPIOJnXXwdZrC6D8BKvML6wnt/i/0ZxC/cT3khHg+xuaVOawfCGDGnXU4OUeWUxCOuEWBv2lRdxKuYN9iJn+lCGC46uL1QpBFgWXpnWzsShNujW5XhqrTcmE3lWl/BbkxjcQEiF1+T4nNj5iNalR05BedxdQRA7IFjtSdfmwwXJsyNeWfIHojxe5KKNXE8wOEWt+fGHLQHonY81WusaiD4gNgVARow+agFRCyquB9fvV57oK4Xbb7b0ZB9w4qruCp4A2f7Vu8QfxT3Iq70OV6a2hird1xnDhvwrgtAxKzAdZweE8GF+pSVOlDXjO0Wf81iUQ35T/g5fTljwv6cPgBjasDfZSYAkw78BsISXiG+xMdBAAAAAElFTkSuQmCC');
+    }
+    .selectall {
+        content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABOklEQVRYR+3WzypFURTH8c8dIBkQSR5A4g0Yk6LkBUzkKQyukNeQiTEl8qeMeAbyBpQ/pZQ/RbvOLZ1ObYO9u1fOme7T2t/9W2v91mpo89do8/1qgCoFRrCDWXQlStEnzrCCu58xqwCOMJ/o4nKYYyzEAN7QnQngHT0xgBuMZwK4xmQMYAYH6EsM8YIlXMQAwvkwphKmIkh/hYfyo2of6EgFAlQwjFCMqYzoozCiXXzFinAba4k7oBVuC80YwDP6MwE8YTAGEH4ayATwiKEYwEZZpoQw69iMAYTz5WIappoJwYhOsVcb0Z9RYBTTiY3osrwNBTWqrHgO++hNWP0h1Gsxjs9jXXCLscSXt8KFZWciBhBaJtUMKL/jVytZzqX0EIsxBXKs5WEanmAV9zGATOmvDtuRC8n/UuAbb5IvIZH620UAAAAASUVORK5CYII=');
+    }
     </style>
     <script>
-        $(document).ready( function () {
+    $(document).ready( function () {
         $('#banglapad').ime({languages: ['bn']});
         $('#action-select-all').click(function(){
             $('#banglapad').select();
@@ -65,24 +83,24 @@
             <div class="col-md-12">
                 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="/">অনলাইন প্রভাত কিবোর্ড</a>
+                        <a class="navbar-brand">অনলাইন প্রভাত কিবোর্ড</a>
                     </div>
                 </nav>
-                <button class="btn btn-primary navbar-btn" id="action-select-all" type="button">
-                    <span class="octicon octicon-three-bars"></span> Select All
+                <button class="btn navbar-btn" id="action-select-all" type="button">
+                    <img class="selectall"> Select All
                 </button>
-                <button class="btn btn-danger navbar-btn" id="action-delete-all" type="button">
-                    <span class="octicon octicon-trashcan"></span> Clear All
+                <button class="btn navbar-btn" id="action-delete-all" type="button">
+                    <img class="clearall"> Clear All
                 </button>
                 <form role="form">
                     <div class="form-group">
-                        <textarea data-autoresize="" id="banglapad" placeholder="এখানে বাংলা লিখুন, বাংলা-ইংরেজী সুইচ করতে Ctrl+M চাপুন" rows="10"></textarea>
+                        <textarea id="banglapad" placeholder="এখানে বাংলা লিখুন, বাংলা-ইংরেজী সুইচ করতে Ctrl+M চাপুন" rows="10"></textarea>
                     </div>
                 </form>
-                <div class="alert alert-warning">
-                    <p><span class="octicon octicon-pin"></span> প্রভাত লেআউট সম্পর্কে বিস্তারিত জানুন <a href="https://ekushey.org/?page/probhat_layout">এখানে</a></p>
-                    <p><span class="octicon octicon-mark-github"></span> প্রজেক্টের সোর্সকোড এর <a href="https://github.com/minhazul-haque/probhat.im">গিটহাব রিপোজিটরি</a></p>
-                    <p><span class="octicon octicon-plug"></span> প্রজেক্টটিতে Wikimedia এর <a href="https://github.com/wikimedia/jquery.ime">jQuery.IME</a> ব্যাবহার করা হয়েছে</p>
+                <div class="alert alert-info">
+                    <p><img class="pin"> একুশে ডট অর্গের <a href="http://ekushey.org/?page/probhat_layout">প্রভাত লেআউট পেজ</a></p>
+                    <p><img class="github"> ফলো, বাগ রিপোর্ট কিংবা কমিট রিকুয়েস্ট দিন <a href="https://github.com/minhazul-haque/probhat.im"> প্রজেক্টের গিটহাব রিপোজিটরিতে</a></p>
+                    <p><img class="plugin"> প্রজেক্টটিতে Wikimedia এর <a href="https://github.com/wikimedia/jquery.ime">jQuery.IME</a> ব্যাবহার করা হয়েছে</p>
                 </div>
             </div>
         </div>
