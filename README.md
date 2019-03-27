@@ -1,6 +1,18 @@
 # probhat.im
 :globe_with_meridians: Online Probhat Keyboard
 
+## jQuery.IME
+
+jQuery.IME is a jQuery based input method editor library supporting more than 135 input methods across more than 62 languages.
+
+These input methods are well tested. Initially the input methods were contributed by the Wikimedia community. By now many input methods have also been contributed by Red Hat.
+
+This project is a Wikimedia foundation initiative to provide language technology tools to a wider audience outside the Wikimedia universe.
+
+This input tool is widely deployed in all Wikimedia projects (eg: wikipedia).
+
+https://github.com/wikimedia/jquery.ime
+
 ## TODO
 
 - [x] Support mobile browser
