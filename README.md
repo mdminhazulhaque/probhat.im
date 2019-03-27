@@ -3,9 +3,12 @@
 
 ## TODO
 
-* Support mobile browser
-* Add FAQ pages
-* Remove bootstrap.css
+- [x] Support mobile browser
+- [x] Remove bootstrap.css
+- [ ] Add FAQ pages
+- [ ] Multiple notepad
+- [ ] Save text to local storage
+- [ ] Warn user when hitting Ctrl+W
 
 ## nginx
 
