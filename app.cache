@@ -2,18 +2,16 @@ CACHE MANIFEST
 
 CACHE:
 favicon.ico
-index.html
-js/bn-probhat.js
-js/jquery.ime.inputmethods.js
-js/jquery.ime.js
-js/jquery.ime.preferences.js
-js/jquery.ime.selector.js
-css/bootstrap.min.css
-http://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js
-http://minhazul-haque.github.io/solaimanlipi/css/solaimanlipi.css
-http://minhazul-haque.github.io/solaimanlipi/fonts/solaimanlipi.woff
-http://minhazul-haque.github.io/solaimanlipi/fonts/solaimanlipi.woff2
+https://cdnjs.cloudflare.com/ajax/libs/jquery.ime/0.2.0/jquery.ime.inputmethods.min.js
+https://cdnjs.cloudflare.com/ajax/libs/jquery.ime/0.2.0/jquery.ime.js
+https://cdnjs.cloudflare.com/ajax/libs/jquery.ime/0.2.0/jquery.ime.preferences.js
+https://cdnjs.cloudflare.com/ajax/libs/jquery.ime/0.2.0/jquery.ime.selector.js
+https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js
+https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css
+https://mdminhazulhaque.github.io/solaimanlipi/css/solaimanlipi.css
 https://www.google-analytics.com/analytics.js
+https://www.googletagmanager.com/gtag/js?id=UA-57632461-8
+index.html
 
 NETWORK:
 *
