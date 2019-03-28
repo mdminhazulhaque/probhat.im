@@ -35,13 +35,14 @@
             font-size: 16px;
             padding: 15px;
         }
-        
+        /* hide ime switch button */
         .imeselector {
             display: none !important;
         }
     </style>
     <script>
         $(document).ready(function() {
+            // patch default settings so bn will be default without hitting Ctrl+M
             $.ime.preferences.registry.language = "bn";
             $.ime.preferences.registry.showSelector = false;
             $.ime.preferences.registry.imes = {
@@ -51,16 +52,19 @@
             $.ime.preferences.getDefaultLanguage = function() {
                 return "bn";
             };
+            // load ime rules from cdn
             $('textarea').ime({
                 languages: ['bn'],
                 imePath: "https://cdnjs.cloudflare.com/ajax/libs/jquery.ime/0.2.0/"
             });
+            // copy text functionality
             $('#action-select-all').click(function() {
                 $('#banglapad').select();
                 try {
                     var successful = document.execCommand('copy');
                     var msg = successful ? 'Copied' : 'Failed to copy';
-
+                    
+                    // flash text after selection is copied to clipboard
                     $('#info').fadeIn(250);
                     $('#info').html(msg);
                     $('#info').fadeOut(2000);
@@ -69,11 +73,13 @@
                     $('#info').html("Error copying");
                 }
             });
+            // clear textarea when clicked
             $('#action-clear-all').click(function() {
                 $('#banglapad').val('');
                 $('#banglapad').focus();
             });
-
+            
+            // set cursor on textarea when document is loaded
             $('#banglapad').focus();
         });
     </script>
