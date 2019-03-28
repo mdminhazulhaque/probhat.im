@@ -1,6 +1,8 @@
 # probhat.im
 :globe_with_meridians: Online Probhat Keyboard
 
+![Preview](screenshot.png)
+
 ## jQuery.IME
 
 jQuery.IME is a jQuery based input method editor library supporting more than 135 input methods across more than 62 languages.
